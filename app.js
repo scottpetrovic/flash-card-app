@@ -8,14 +8,17 @@ const frontPinyin = document.getElementById('front-pinyin');
 const backTranslation = document.getElementById('back-translation');
 const card = document.querySelector('.card');
 
+const nextButton = document.getElementById('next-button');
+const prevButton = document.getElementById('prev-button');
+
 // State
 let currentSet = null;
 let currentCardIndex = 0;
 
 // Event Listeners
 document.querySelector('.back-button').addEventListener('click', showMenu);
-document.getElementById('prev-button').addEventListener('click', previousCard);
-document.getElementById('next-button').addEventListener('click', nextCard);
+prevButton.addEventListener('click', previousCard);
+nextButton.addEventListener('click', nextCard);
 card.addEventListener('click', flipCard);
 
 // Initialize
@@ -63,11 +66,17 @@ function flipCard() {
 
 // Update Display
 function updateCard() {
-    const currentCard = hsk1Data[currentSet][currentCardIndex];
+    const cards = hsk1Data[currentSet];
+    const currentCard = cards[currentCardIndex];
+
     frontCharacter.textContent = currentCard.front;
     frontPinyin.textContent = currentCard.frontSubtitle;
     backTranslation.textContent = currentCard.back;
     cardProgress.textContent = `${currentCardIndex + 1}/${hsk1Data[currentSet].length}`;
+
+    // Disable/enable buttons based on position
+    nextButton.disabled = currentCardIndex === cards.length - 1;
+    prevButton.disabled = currentCardIndex === 0;
 }
 
 // Start the app

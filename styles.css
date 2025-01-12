@@ -1,4 +1,8 @@
 /* Base styles */
+html {
+  background: #dadef0;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -14,10 +18,7 @@ body {
 
 /* Typography */
 .heading {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  text-align: center;
+ 
 }
 
 /* Card styles */
@@ -92,6 +93,17 @@ body {
   background-color: #0056b3;
 }
 
+.nav-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.nav-button:disabled:hover {
+  background-color: #cccccc;
+}
+
+
 .back-button {
   position: absolute;
   top: 1rem;
@@ -133,3 +145,4 @@ body {
 .menu-button:hover {
   background-color: #0056b3;
 }
+

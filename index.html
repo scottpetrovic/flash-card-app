@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSK1 Flashcards</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Main Menu -->
+        <div id="menu-screen" class="container">
+            <h1 class="heading">HSK1 Chinese Flashcards</h1>
+            <div class="menu-container">
+                <!-- Menu buttons will be inserted here by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Flashcard Screen -->
+        <div id="flashcard-screen" class="container" style="display: none;">
+            <button class="back-button">← Back to Menu</button>
+            <h2 class="heading">HSK1 Flashcards (<span id="card-progress">1/25</span>)</h2>
+            
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-face card-front">
+                        <div class="character" id="front-character"></div>
+                        <div class="pinyin" id="front-pinyin"></div>
+                    </div>
+                    <div class="card-face card-back">
+                        <div class="character" id="back-translation"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button class="nav-button" id="prev-button">Previous</button>
+                <button class="nav-button" id="next-button">Next</button>
+            </div>
+        </div>
+    </div>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 const hsk1Data = {
-  
- 'Lesson 1': [
+ title: "HSK1 Chinese",
+ lessons: {
+'Lesson A': [
     { front: "你好", frontSubtitle: "nǐ hǎo", back: "Hello" },
     { front: "哪", frontSubtitle: "nǎ", back: "Which" },
     { front: "怎么", frontSubtitle: "zěnme", back: "How" },
@@ -28,7 +29,7 @@ const hsk1Data = {
     { front: "老师", frontSubtitle: "lǎoshī", back: "Teacher" }
   ],
 
-  'Lesson 2': [
+  'Lesson B': [
     { front: "中国", frontSubtitle: "zhōngguó", back: "China" },
     { front: "现在", frontSubtitle: "xiànzài", back: "Now" },
     { front: "今天", frontSubtitle: "jīntiān", back: "Today" },
@@ -56,7 +57,7 @@ const hsk1Data = {
     { front: "读", frontSubtitle: "dú", back: "To read" }
   ],
 
-  'Lesson 3 ': [
+  'Lesson C': [
     { front: "写", frontSubtitle: "xiě", back: "To write" },
     { front: "吃", frontSubtitle: "chī", back: "To eat" },
     { front: "喝", frontSubtitle: "hē", back: "To drink" },
@@ -84,7 +85,7 @@ const hsk1Data = {
     { front: "工作", frontSubtitle: "gōngzuò", back: "To work/job" }
   ],
 
-  'Lesson 4': [
+  'Lesson D': [
     { front: "学习", frontSubtitle: "xuéxí", back: "To study" },
     { front: "开", frontSubtitle: "kāi", back: "To open/drive" },
     { front: "坐", frontSubtitle: "zuò", back: "To sit" },
@@ -112,7 +113,7 @@ const hsk1Data = {
     { front: "快", frontSubtitle: "kuài", back: "Fast" }
   ],
 
-  'Lesson 5': [
+  'Lesson E': [
     { front: "慢", frontSubtitle: "màn", back: "Slow" },
     { front: "早", frontSubtitle: "zǎo", back: "Early" },
     { front: "晚", frontSubtitle: "wǎn", back: "Late" },
@@ -140,8 +141,7 @@ const hsk1Data = {
     { front: "水", frontSubtitle: "shuǐ", back: "Water" }
   ],
 
-
-  'Lesson 6': [
+  'Lesson F': [
     { front: "菜", frontSubtitle: "cài", back: "Dish/vegetable" },
     { front: "茶", frontSubtitle: "chá", back: "Tea" },
     { front: "衣服", frontSubtitle: "yīfu", back: "Clothes" },
@@ -167,5 +167,6 @@ const hsk1Data = {
     { front: "家", frontSubtitle: "jiā", back: "Home/family" },
     { front: "国", frontSubtitle: "guó", back: "Country" }
   ]
-
+ }
+ 
 };

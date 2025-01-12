@@ -7,6 +7,7 @@ const frontCharacter = document.getElementById('front-character');
 const frontPinyin = document.getElementById('front-pinyin');
 const backTranslation = document.getElementById('back-translation');
 const card = document.querySelector('.card');
+const mainHeading = document.querySelector('h1.heading');
 
 const nextButton = document.getElementById('next-button');
 const prevButton = document.getElementById('prev-button');
@@ -23,12 +24,15 @@ card.addEventListener('click', flipCard);
 
 // Initialize
 function initialize() {
+    // Set the title from the data
+    mainHeading.textContent = hsk1Data.title + " Flashcards";
+    
     // Create menu buttons
-    Object.entries(hsk1Data).forEach(([setName, cards]) => {
+    Object.entries(hsk1Data.lessons).forEach(([lessonName, cards]) => {
         const button = document.createElement('button');
         button.className = 'menu-button';
-        button.textContent = `${setName} (${cards.length} cards)`;
-        button.addEventListener('click', () => startSet(setName));
+        button.textContent = `${lessonName} (${cards.length} cards)`;
+        button.addEventListener('click', () => startSet(lessonName));
         menuContainer.appendChild(button);
     });
 }
@@ -40,8 +44,8 @@ function showMenu() {
     currentSet = null;
 }
 
-function startSet(setName) {
-    currentSet = setName;
+function startSet(lessonName) {
+    currentSet = lessonName;
     currentCardIndex = 0;
     menuScreen.style.display = 'none';
     flashcardScreen.style.display = 'flex';
@@ -50,13 +54,13 @@ function startSet(setName) {
 
 function nextCard() {
     card.classList.remove('flipped');
-    currentCardIndex = (currentCardIndex + 1) % hsk1Data[currentSet].length;
+    currentCardIndex = (currentCardIndex + 1) % hsk1Data.lessons[currentSet].length;
     updateCard();
 }
 
 function previousCard() {
     card.classList.remove('flipped');
-    currentCardIndex = (currentCardIndex - 1 + hsk1Data[currentSet].length) % hsk1Data[currentSet].length;
+    currentCardIndex = (currentCardIndex - 1 + hsk1Data.lessons[currentSet].length) % hsk1Data.lessons[currentSet].length;
     updateCard();
 }
 
@@ -66,15 +70,15 @@ function flipCard() {
 
 // Update Display
 function updateCard() {
-    const cards = hsk1Data[currentSet];
+    const cards = hsk1Data.lessons[currentSet];
     const currentCard = cards[currentCardIndex];
 
     frontCharacter.textContent = currentCard.front;
     frontPinyin.textContent = currentCard.frontSubtitle;
     backTranslation.textContent = currentCard.back;
-    cardProgress.textContent = `${currentCardIndex + 1}/${hsk1Data[currentSet].length}`;
+    cardProgress.textContent = `${currentCardIndex + 1}/${hsk1Data.lessons[currentSet].length}`;
 
-    // Disable/enable buttons based on position
+    // Update navigation buttons
     nextButton.disabled = currentCardIndex === cards.length - 1;
     prevButton.disabled = currentCardIndex === 0;
 }

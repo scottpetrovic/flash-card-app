@@ -8,6 +8,7 @@ const frontPinyin = document.getElementById('front-pinyin');
 const backTranslation = document.getElementById('back-translation');
 const card = document.querySelector('.card');
 const mainHeading = document.querySelector('h1.heading');
+const lessonTitle = document.getElementById('lesson-title');
 
 const nextButton = document.getElementById('next-button');
 const prevButton = document.getElementById('prev-button');
@@ -54,9 +55,15 @@ function startSet(lessonName) {
 
 function nextCard() {
     card.classList.remove('flipped');
-    currentCardIndex = (currentCardIndex + 1) % hsk1Data.lessons[currentSet].length;
-    updateCard();
+    
+    // Wait for flip animation to complete before updating content
+    // otherwise we will see the new answer
+    setTimeout(() => {
+        currentCardIndex = (currentCardIndex + 1) % hsk1Data.lessons[currentSet].length;
+        updateCard();
+    }, 500); // flip the card back aroiund before updating the content
 }
+
 
 function previousCard() {
     card.classList.remove('flipped');
@@ -73,10 +80,15 @@ function updateCard() {
     const cards = hsk1Data.lessons[currentSet];
     const currentCard = cards[currentCardIndex];
 
+
     frontCharacter.textContent = currentCard.front;
     frontPinyin.textContent = currentCard.frontSubtitle;
     backTranslation.textContent = currentCard.back;
     cardProgress.textContent = `${currentCardIndex + 1}/${hsk1Data.lessons[currentSet].length}`;
+
+    // lesson title when we click to learn
+    // this will be the same for all the cards in the lesson
+    lessonTitle.textContent = hsk1Data.title + ' - ' + currentSet;  
 
     // Update navigation buttons
     nextButton.disabled = currentCardIndex === cards.length - 1;

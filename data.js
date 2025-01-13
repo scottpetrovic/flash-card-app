@@ -5,7 +5,7 @@ const hsk1Data = {
     { front: "你好", frontSubtitle: "nǐ hǎo", back: "Hello" },
     { front: "哪", frontSubtitle: "nǎ", back: "Which" },
     { front: "怎么", frontSubtitle: "zěnme", back: "How" },
-    { front: "为什么", frontSubtitle: "wèi shéme", back: "Why" },
+    { front: "为什么", frontSubtitle: "wèi shénme", back: "Why" },
     { front: "谢谢", frontSubtitle: "xièxie", back: "Thank you" },
     { front: "请", frontSubtitle: "qǐng", back: "Please" },
     { front: "再见", frontSubtitle: "zàijiàn", back: "Goodbye" },

@@ -50,6 +50,7 @@ function startSet(lessonName) {
     currentCardIndex = 0;
     menuScreen.style.display = 'none';
     flashcardScreen.style.display = 'flex';
+    card.classList.remove('flipped');  // Reset card to front face if it isn't
     updateCard();
 }
 

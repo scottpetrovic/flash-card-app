@@ -12,15 +12,19 @@ const lessonTitle = document.getElementById('lesson-title');
 
 const nextButton = document.getElementById('next-button');
 const prevButton = document.getElementById('prev-button');
+const resetButton = document.getElementById('reset-button');
+
 
 // State
 let currentSet = null;
 let currentCardIndex = 0;
+let currentCards = null; // will hold the shuffled cards for current lesson
 
 // Event Listeners
 document.querySelector('.back-button').addEventListener('click', showMenu);
 prevButton.addEventListener('click', previousCard);
 nextButton.addEventListener('click', nextCard);
+resetButton.addEventListener('click', resetCard);
 card.addEventListener('click', flipCard);
 
 
@@ -45,7 +49,15 @@ showPinyinBtn.addEventListener('click', (e) => {
     e.stopPropagation();
 });
 
-
+// Shuffle array helper function
+function shuffleArray(array) {
+    const shuffled = [...array];  // Create a copy of the array
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];  // Swap elements
+    }
+    return shuffled;
+}
 
 
 // Initialize
@@ -73,29 +85,45 @@ function showMenu() {
 function startSet(lessonName) {
     currentSet = lessonName;
     currentCardIndex = 0;
+    currentCards = shuffleArray(hsk1Data.lessons[lessonName]);  // Shuffle cards when starting a lesson
     menuScreen.style.display = 'none';
     flashcardScreen.style.display = 'flex';
     card.classList.remove('flipped');  // Reset card to front face if it isn't
     updateCard();
 }
 
-function nextCard() {
+
+
+function resetCard() {
+    card.classList.remove('flipped');
+    setTimeout(() => {
+        currentCardIndex = 0;
+        updateCard();
+    }, 500);
+}
+
+function navigateCard(direction) {
     card.classList.remove('flipped');
     
     // Wait for flip animation to complete before updating content
-    // otherwise we will see the new answer
     setTimeout(() => {
-        currentCardIndex = (currentCardIndex + 1) % hsk1Data.lessons[currentSet].length;
+        if (direction === 'next') {
+            currentCardIndex = (currentCardIndex + 1) % currentCards.length;
+        } else {
+            currentCardIndex = (currentCardIndex - 1 + currentCards.length) % currentCards.length;
+        }
         updateCard();
-    }, 500); // flip the card back aroiund before updating the content
+    }, 500);
 }
 
+function nextCard() {
+    navigateCard('next');
+}
 
 function previousCard() {
-    card.classList.remove('flipped');
-    currentCardIndex = (currentCardIndex - 1 + hsk1Data.lessons[currentSet].length) % hsk1Data.lessons[currentSet].length;
-    updateCard();
+    navigateCard('prev');
 }
+
 
 function flipCard() {
     card.classList.toggle('flipped');
@@ -103,21 +131,18 @@ function flipCard() {
 
 // Update Display
 function updateCard() {
-    const cards = hsk1Data.lessons[currentSet];
-    const currentCard = cards[currentCardIndex];
-
+    const currentCard = currentCards[currentCardIndex];
 
     frontCharacter.textContent = currentCard.front;
     frontPinyin.textContent = currentCard.frontSubtitle;
     backTranslation.textContent = currentCard.back;
-    cardProgress.textContent = `${currentCardIndex + 1}/${hsk1Data.lessons[currentSet].length}`;
+    cardProgress.textContent = `${currentCardIndex + 1}/${currentCards.length}`;
 
     // lesson title when we click to learn
-    // this will be the same for all the cards in the lesson
     lessonTitle.textContent = hsk1Data.title + ' - ' + currentSet;  
 
     // Update navigation buttons
-    nextButton.disabled = currentCardIndex === cards.length - 1;
+    nextButton.disabled = currentCardIndex === currentCards.length - 1;
     prevButton.disabled = currentCardIndex === 0;
 }
 

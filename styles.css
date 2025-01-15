@@ -151,3 +151,26 @@ body {
   background-color: #0056b3;
 }
 
+.pinyin {
+  font-size: 1.2rem;
+  color: #666;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.pinyin.hidden {
+  opacity: 0;
+}
+
+.show-pinyin-btn {
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  border: 2px solid #63a5ae;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.1s;
+  color: #446c90;
+}
+
+.show-pinyin-btn:active {
+  transform: scale(0.95);
+}

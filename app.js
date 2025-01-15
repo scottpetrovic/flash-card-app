@@ -23,6 +23,31 @@ prevButton.addEventListener('click', previousCard);
 nextButton.addEventListener('click', nextCard);
 card.addEventListener('click', flipCard);
 
+
+// Show/Hide Pinyin functionality
+const showPinyinBtn = document.getElementById('show-pinyin-btn');
+const pinyinElement = document.getElementById('front-pinyin');
+
+showPinyinBtn.addEventListener('mousedown', () => {
+    pinyinElement.classList.remove('hidden');
+});
+
+showPinyinBtn.addEventListener('mouseup', () => {
+    pinyinElement.classList.add('hidden');
+});
+
+showPinyinBtn.addEventListener('mouseleave', () => {
+    pinyinElement.classList.add('hidden');
+});
+
+// Prevent card from flipping when pressing the pinyin button
+showPinyinBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+});
+
+
+
+
 // Initialize
 function initialize() {
     // Set the title from the data

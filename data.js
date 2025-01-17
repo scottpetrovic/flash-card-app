@@ -1,7 +1,7 @@
 const hsk1Data = {
   title: "HSK1 Chinese",
   lessons: {
-    'Lesson 1A': [
+    '1A': [
       { front: "你好", frontSubtitle: "nǐ hǎo", back: "Hello" },
       { front: "哪", frontSubtitle: "nǎ", back: "Which" },
       { front: "怎么", frontSubtitle: "zěnme", back: "How" },
@@ -13,7 +13,7 @@ const hsk1Data = {
       { front: "没关系", frontSubtitle: "méi guānxi", back: "It's okay" },
       { front: "是", frontSubtitle: "shì", back: "Yes/to be" }
     ],
-    'Lesson 1B': [
+    '1B': [
       { front: "不是", frontSubtitle: "bú shì", back: "No/is not" },
       { front: "我", frontSubtitle: "wǒ", back: "I/me" },
       { front: "你", frontSubtitle: "nǐ", back: "You" },
@@ -25,7 +25,7 @@ const hsk1Data = {
       { front: "好", frontSubtitle: "hǎo", back: "Good" },
       { front: "人", frontSubtitle: "rén", back: "Person" }
     ],
-    'Lesson 1C': [
+    '1C': [
       { front: "叫", frontSubtitle: "jiào", back: "To be called" },
       { front: "什么", frontSubtitle: "shénme", back: "What" },
       { front: "名字", frontSubtitle: "míngzi", back: "Name" },
@@ -37,7 +37,7 @@ const hsk1Data = {
       { front: "明天", frontSubtitle: "míngtiān", back: "Tomorrow" },
       { front: "昨天", frontSubtitle: "zuótiān", back: "Yesterday" }
     ],
-    'Lesson 2A': [
+    '2A': [
       { front: "年", frontSubtitle: "nián", back: "Year" },
       { front: "月", frontSubtitle: "yuè", back: "Month" },
       { front: "日", frontSubtitle: "rì", back: "Day" },
@@ -49,7 +49,7 @@ const hsk1Data = {
       { front: "想", frontSubtitle: "xiǎng", back: "To want/to think" },
       { front: "认识", frontSubtitle: "rènshi", back: "To know (someone)" }
     ],
-    'Lesson 2B': [
+    '2B': [
       { front: "知道", frontSubtitle: "zhīdao", back: "To know (something)" },
       { front: "会", frontSubtitle: "huì", back: "Can/will" },
       { front: "能", frontSubtitle: "néng", back: "Can/to be able to" },
@@ -61,7 +61,7 @@ const hsk1Data = {
       { front: "说", frontSubtitle: "shuō", back: "To speak" },
       { front: "读", frontSubtitle: "dú", back: "To read" }
     ],
-    'Lesson 2C': [
+    '2C': [
       { front: "写", frontSubtitle: "xiě", back: "To write" },
       { front: "吃", frontSubtitle: "chī", back: "To eat" },
       { front: "喝", frontSubtitle: "hē", back: "To drink" },
@@ -73,7 +73,7 @@ const hsk1Data = {
       { front: "右", frontSubtitle: "yòu", back: "Right" },
       { front: "前面", frontSubtitle: "qiánmiàn", back: "Front" }
     ],
-    'Lesson 3A': [
+    '3A': [
       { front: "后面", frontSubtitle: "hòumiàn", back: "Back" },
       { front: "里", frontSubtitle: "lǐ", back: "Inside" },
       { front: "外", frontSubtitle: "wài", back: "Outside" },
@@ -85,7 +85,7 @@ const hsk1Data = {
       { front: "那", frontSubtitle: "nà", back: "That" },
       { front: "和", frontSubtitle: "hé", back: "And" }
     ],
-    'Lesson 3B': [
+    '3B': [
       { front: "在", frontSubtitle: "zài", back: "To be in/at" },
       { front: "有", frontSubtitle: "yǒu", back: "To have" },
       { front: "没有", frontSubtitle: "méiyǒu", back: "Don't have" },
@@ -97,7 +97,7 @@ const hsk1Data = {
       { front: "去", frontSubtitle: "qù", back: "To go" },
       { front: "来", frontSubtitle: "lái", back: "To come" }
     ],
-    'Lesson 3C': [
+    '3C': [
       { front: "回", frontSubtitle: "huí", back: "To return" },
       { front: "买", frontSubtitle: "mǎi", back: "To buy" },
       { front: "见", frontSubtitle: "jiàn", back: "To see/meet" },
@@ -109,7 +109,7 @@ const hsk1Data = {
       { front: "多", frontSubtitle: "duō", back: "Many" },
       { front: "少", frontSubtitle: "shǎo", back: "Few" }
     ],
-    'Lesson 4A': [
+    '4A': [
       { front: "冷", frontSubtitle: "lěng", back: "Cold" },
       { front: "热", frontSubtitle: "rè", back: "Hot" },
       { front: "高兴", frontSubtitle: "gāoxìng", back: "Happy" },
@@ -121,7 +121,7 @@ const hsk1Data = {
       { front: "近", frontSubtitle: "jìn", back: "Near" },
       { front: "快", frontSubtitle: "kuài", back: "Fast" }
     ],
-    'Lesson 4B': [
+    '4B': [
       { front: "慢", frontSubtitle: "màn", back: "Slow" },
       { front: "早", frontSubtitle: "zǎo", back: "Early" },
       { front: "晚", frontSubtitle: "wǎn", back: "Late" },
@@ -133,7 +133,7 @@ const hsk1Data = {
       { front: "四", frontSubtitle: "sì", back: "Four" },
       { front: "五", frontSubtitle: "wǔ", back: "Five" }
     ],
-    'Lesson 4C': [
+    '4C': [
       { front: "六", frontSubtitle: "liù", back: "Six" },
       { front: "七", frontSubtitle: "qī", back: "Seven" },
       { front: "八", frontSubtitle: "bā", back: "Eight" },
@@ -145,7 +145,7 @@ const hsk1Data = {
       { front: "电脑", frontSubtitle: "diànnǎo", back: "Computer" },
       { front: "电视", frontSubtitle: "diànshì", back: "Television" }
     ],
-    'Lesson 5A': [
+    '5A': [
       { front: "电影", frontSubtitle: "diànyǐng", back: "Movie" },
       { front: "飞机", frontSubtitle: "fēijī", back: "Airplane" },
       { front: "出租车", frontSubtitle: "chūzūchē", back: "Taxi" },
@@ -157,7 +157,7 @@ const hsk1Data = {
       { front: "书", frontSubtitle: "shū", back: "Book" },
       { front: "报纸", frontSubtitle: "bàozhǐ", back: "Newspaper" }
     ],
-    'Lesson 5B': [
+    '5B': [
       { front: "桌子", frontSubtitle: "zhuōzi", back: "Table" },
       { front: "椅子", frontSubtitle: "yǐzi", back: "Chair" },
       { front: "门", frontSubtitle: "mén", back: "Door" },
@@ -169,7 +169,7 @@ const hsk1Data = {
       { front: "学校", frontSubtitle: "xuéxiào", back: "School" },
       { front: "银行", frontSubtitle: "yínháng", back: "Bank" }
     ],
-    'Lesson 5C': [
+    '5C': [
       { front: "火车站", frontSubtitle: "huǒchēzhàn", back: "Train station" },
       { front: "中文", frontSubtitle: "zhōngwén", back: "Chinese language" },
       { front: "汉语", frontSubtitle: "hànyǔ", back: "Chinese language" },

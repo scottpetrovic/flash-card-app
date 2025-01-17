@@ -169,3 +169,67 @@ body {
 .show-pinyin-btn:active {
   transform: scale(0.95);
 }
+
+
+
+/* Review Section Styles */
+.review-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.review-description {
+  margin-bottom: 1rem;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.lesson-selector {
+  padding: 0.8rem 1.2rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  min-width: 250px;
+  font-size: 0.95rem;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.lesson-selector:hover {
+  border-color: #666;
+}
+
+.lesson-selector:focus {
+  outline: none;
+  border-color: #2b6ebe;
+  box-shadow: 0 0 0 2px rgba(43,110,190,0.1);
+}
+
+.review-button {
+  padding: 1.2rem 2rem;
+  color: white;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  background: linear-gradient(173deg, rgb(147, 52, 192) 0%, rgb(191, 80, 166) 100%);
+  box-shadow: 1px 1px 6px 2px rgba(64, 102, 144, 0.15);
+  margin-top: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.review-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 1px 2px 8px 2px rgba(64, 102, 144, 0.2);
+}
+
+.review-button:active {
+  transform: translateY(0);
+  box-shadow: 1px 1px 4px 1px rgba(64, 102, 144, 0.15);
+}

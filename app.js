@@ -73,6 +73,32 @@ function initialize() {
         button.addEventListener('click', () => startSet(lessonName));
         menuContainer.appendChild(button);
     });
+
+    initializeLessonReview()
+}
+
+function initializeLessonReview() {
+    // Populate the lesson selector dropdown
+    const lessonSelect = document.getElementById('lesson-select');
+    const lessonKeys = Object.keys(hsk1Data.lessons);
+
+    // Add options for each lesson
+    lessonKeys.forEach((lessonName, index) => {
+        const option = document.createElement('option');
+        option.value = index + 1;
+        
+        // Calculate total cards up through this lesson
+        const totalCards = lessonKeys
+            .slice(0, index + 1)
+            .reduce((sum, key) => sum + hsk1Data.lessons[key].length, 0);
+            
+        option.textContent = `Through Lesson ${lessonName} (${totalCards} cards)`;
+        lessonSelect.appendChild(option);
+    });
+
+    // Add review button event listener
+    document.getElementById('start-review').addEventListener('click', startReviewMode);
+
 }
 
 // Navigation Functions
@@ -89,6 +115,57 @@ function startSet(lessonName) {
     menuScreen.style.display = 'none';
     flashcardScreen.style.display = 'flex';
     card.classList.remove('flipped');  // Reset card to front face if it isn't
+    updateCard();
+}
+
+// Get combined cards from selected lessons
+function getCombinedReviewCards() {
+    const selectedIndex = parseInt(document.getElementById('lesson-select').value);
+    const lessonKeys = Object.keys(hsk1Data.lessons);
+    const lessonsToReview = lessonKeys.slice(0, selectedIndex);
+    
+    let reviewCards = [];
+    lessonsToReview.forEach(lessonName => {
+        reviewCards.push(...hsk1Data.lessons[lessonName]);
+    });
+    
+    return {
+        cards: shuffleArray(reviewCards),
+        firstLesson: lessonsToReview[0],
+        lastLesson: lessonsToReview[lessonsToReview.length - 1]
+    };
+}
+
+// Update the UI elements for review mode
+function updateReviewUI(firstLesson, lastLesson, totalCards) {
+    lessonTitle.textContent = `Review: ${firstLesson} through ${lastLesson} (${totalCards} cards)`;
+    cardProgress.textContent = `1/${totalCards}`;
+    
+    // Reset navigation buttons
+    prevButton.disabled = true;
+    nextButton.disabled = currentCardIndex === totalCards - 1;
+}
+
+// Switch display to flashcard screen
+function showFlashcardScreen() {
+    menuScreen.style.display = 'none';
+    flashcardScreen.style.display = 'flex';
+    card.classList.remove('flipped');
+}
+
+// Main review mode function
+function startReviewMode() {
+    // Get the review cards and lesson range
+    const { cards, firstLesson, lastLesson } = getCombinedReviewCards();
+    
+    // Set the current state
+    currentCards = cards;
+    currentSet = `Review through ${lastLesson}`;
+    currentCardIndex = 0;
+    
+    // Update UI elements
+    updateReviewUI(firstLesson, lastLesson, cards.length);
+    showFlashcardScreen();
     updateCard();
 }
 

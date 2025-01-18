@@ -1,5 +1,7 @@
 // DOM Elements
 const menuScreen = document.getElementById('menu-screen');
+const reviewModeScreen = document.getElementById('review-mode-container');
+
 const flashcardScreen = document.getElementById('flashcard-screen');
 const menuContainer = document.querySelector('.menu-container');
 const cardProgress = document.getElementById('card-progress');
@@ -103,9 +105,13 @@ function initializeLessonReview() {
 
 // Navigation Functions
 function showMenu() {
+    // show language selection menu
     menuScreen.style.display = 'flex';
     flashcardScreen.style.display = 'none';
     currentSet = null;
+
+    // show the review mode section
+    reviewModeScreen.style.display = 'flex';
 }
 
 function startSet(lessonName) {
@@ -116,6 +122,9 @@ function startSet(lessonName) {
     flashcardScreen.style.display = 'flex';
     card.classList.remove('flipped');  // Reset card to front face if it isn't
     updateCard();
+
+    // we are going to do our set, so hide the review mode section
+    reviewModeScreen.style.display = 'none';
 }
 
 // Get combined cards from selected lessons
@@ -167,6 +176,9 @@ function startReviewMode() {
     updateReviewUI(firstLesson, lastLesson, cards.length);
     showFlashcardScreen();
     updateCard();
+
+    // hide the review mode
+    reviewModeScreen.style.display = 'none';
 }
 
 
